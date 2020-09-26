@@ -14,19 +14,17 @@ public class AddProductTest extends BaseTest{
         HomePage homePage= new HomePage(myDriver.getDriver());
         homePage.searchFor("Alexa");
         homePage.goToTheNextPage();
-
-        ProductPage productPage= homePage.selectProductNumber(10);
+        int index=(int)(Math.random() * (22 - 0 + 1) + 0);
+        ProductPage productPage= homePage.selectProductNumber(index);
+        log.info("POSICION "+index);
         String Title= productPage.getProductTile();
+
         CartPage cartPage= productPage.addToCart();
-        ShoppingCartPage shoppingCartPage;
-        if(productPage.isRightPanelDisplayed() != null){
-            shoppingCartPage= productPage.isRightPanelDisplayed();
-        }else{
-            Assert.assertEquals(cartPage.getCartText(), "Added to Cart", "Validate product has been added into cart");
-            shoppingCartPage= cartPage.goToShoppingCartPage();
-        }
+        Assert.assertTrue(cartPage.isProductAdded(),"Validate product has been added into cart");
+
+        ShoppingCartPage shoppingCartPage= cartPage.goToShoppingCartPage();
         log.info(Title);
-        Assert.assertTrue(shoppingCartPage.validateProductTitleShoppingCart(Title), "Validate product in shopping cart");
+        Assert.assertTrue(shoppingCartPage.validateProductTitleShoppingCart(Title), "Validate product is in shopping cart");
 
     }
 

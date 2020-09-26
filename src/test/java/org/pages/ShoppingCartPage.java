@@ -17,6 +17,7 @@ public class ShoppingCartPage extends BasePage{
     }
 
     public boolean validateProductTitleShoppingCart(String productTitle){
+        log.info("Looking for product in shopping cart");
         for ( WebElement element : productTitleShoppingCart) {
             if (element.getText().contains(productTitle)){
                 return true;

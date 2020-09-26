@@ -19,11 +19,6 @@ public class ProductPage extends BasePage{
     @FindBy(id = "productTitle")
     private WebElement productTile;
 
-    @FindBy(id = "attach-accessory-pane")
-    private WebElement rightPanel;
-
-    @FindBy(css = "#attach-sidesheet-view-cart-button > span > input[class=\"a-button-input\"]")
-    private WebElement cartButtonRightPanel;
 
     protected ProductPage(WebDriver driver){
         super(driver);
@@ -39,13 +34,13 @@ public class ProductPage extends BasePage{
     public CartPage addToCart(){
         isProductAvailable();
         isModalDisplayed();
-        log.info("Add product to cart");
         return new CartPage(getDriver());
     }
 
     private void isProductAvailable(){
         try {
             if(addToCart.isDisplayed()){
+                log.info("Clicking on Add to Cart button");
                 click(addToCart);
             }
         }
@@ -58,6 +53,7 @@ public class ProductPage extends BasePage{
     private void isModalDisplayed(){
         try {
             if (modal.isDisplayed()){
+                log.info("Closing the modal");
                 click(closeModal);
             }
         } catch(NoSuchElementException e){
@@ -65,17 +61,5 @@ public class ProductPage extends BasePage{
         }
     }
 
-    public ShoppingCartPage isRightPanelDisplayed() {
-        try{
-            if (rightPanel.isDisplayed()){
-                click(cartButtonRightPanel);
-                log.info("Navigate to Shopping cart Page from product page");
-                return new ShoppingCartPage(getDriver());
-            }
-        } catch(NoSuchElementException e){
-        log.info("Any panel has been displayed");
-        }
-        return null;
-    }
 
 }

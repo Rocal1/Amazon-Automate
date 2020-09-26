@@ -61,4 +61,8 @@ public class BasePage {
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
+    protected boolean isTextPresent(String TextExpected) {
+        return getDriver().getPageSource().contains(TextExpected);
+    }
+
 }

@@ -54,9 +54,15 @@ public class BasePage {
         log.info("Waiting for all "+ elements +" to be clickable");
     }
 
+
+    protected void waitElementVisible(WebElement element) {
+        getWait(10).until(ExpectedConditions.visibilityOf(element));
+    }
+
     protected void scrollDownToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
         log.info("Scrolling to "+ element );
     }
+
 }

@@ -14,8 +14,8 @@ public class AddProductTest extends BaseTest{
         HomePage homePage= new HomePage(myDriver.getDriver());
         homePage.searchFor("Alexa");
         homePage.goToTheNextPage();
-        int index=(int)(Math.random() * (22 - 0 + 1) + 0);
-        ProductPage productPage= homePage.selectProductNumber(4);
+
+        ProductPage productPage= homePage.selectProductNumber(3);
         String Title= productPage.getProductTile();
 
         CartPage cartPage= productPage.addToCart();

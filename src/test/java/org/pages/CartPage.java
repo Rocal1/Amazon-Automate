@@ -36,7 +36,6 @@ public class CartPage extends BasePage{
     private boolean isCartPanelDisplayed() {
         try{
             if (cartPanel.isDisplayed()){
-                log.info("-------PANEL DISPLAYED--------");
                 log.info("Going to Shopping cart page from product page");
                 click(cartButtonPanel);
                 return true;

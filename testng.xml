@@ -2,6 +2,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Amazon Automated Suite" parallel="tests"
 	thread-count="1">
+	<listeners>
+		<listener class-name="org.reports.ExtentReportsListeners"/>
+	</listeners>
 	<test name="Test1">
 		<classes>
 			<class name="org.tests.AddProductTest" />

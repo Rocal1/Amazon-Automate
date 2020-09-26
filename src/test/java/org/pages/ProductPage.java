@@ -13,7 +13,7 @@ public class ProductPage extends BasePage{
     @FindBy(id = "a-popover-header-1")
     private WebElement modal;
 
-    @FindBy(id = "a-popover-header-1")
+    @FindBy(css = "button[class=\" a-button-close a-declarative\"]")
     private WebElement closeModal;
 
     @FindBy(id = "productTitle")

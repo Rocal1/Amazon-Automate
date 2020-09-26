@@ -15,15 +15,13 @@ public class AddProductTest extends BaseTest{
         homePage.searchFor("Alexa");
         homePage.goToTheNextPage();
         int index=(int)(Math.random() * (22 - 0 + 1) + 0);
-        ProductPage productPage= homePage.selectProductNumber(index);
-        log.info("POSICION "+index);
+        ProductPage productPage= homePage.selectProductNumber(4);
         String Title= productPage.getProductTile();
 
         CartPage cartPage= productPage.addToCart();
         Assert.assertTrue(cartPage.isProductAdded(),"Validate product has been added into cart");
 
         ShoppingCartPage shoppingCartPage= cartPage.goToShoppingCartPage();
-        log.info(Title);
         Assert.assertTrue(shoppingCartPage.validateProductTitleShoppingCart(Title), "Validate product is in shopping cart");
 
     }

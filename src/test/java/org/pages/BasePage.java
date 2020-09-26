@@ -40,18 +40,15 @@ public class BasePage {
 
     protected void waitElementClickable(WebElement element){
         getFluentWait(15,2).until(ExpectedConditions.elementToBeClickable(element));
-        log.info("Waiting for "+ element +" to be clickable");
     }
 
     protected void click(WebElement element){
         waitElementClickable(element);
         element.click();
-        log.info("Clicking on "+ element);
     }
 
     protected void waitAllElementVisible(List<WebElement> elements){
         getWait(10).until(ExpectedConditions.visibilityOfAllElements(elements));
-        log.info("Waiting for all "+ elements +" to be clickable");
     }
 
 
@@ -62,7 +59,6 @@ public class BasePage {
     protected void scrollDownToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView();", element);
-        log.info("Scrolling to "+ element );
     }
 
 }

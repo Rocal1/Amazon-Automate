@@ -16,7 +16,12 @@ public class ShoppingCartPage extends BasePage{
         super(driver);
     }
 
-    public String getProductTitleShoppingCart(int index){
-        return productTitleShoppingCart.get(index).getText();
+    public boolean validateProductTitleShoppingCart(String productTitle){
+        for ( WebElement element : productTitleShoppingCart) {
+            if (element.getText().contains(productTitle)){
+                return true;
+            }
+        }
+        return false;
     }
 }

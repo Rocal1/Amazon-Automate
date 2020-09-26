@@ -17,13 +17,13 @@ public class CartPage extends BasePage{
     }
 
     public String getCartText(){
-        log.info("Get product title");
+        log.info("Get product title from cart page");
         waitElementVisible(productAdded);
         return productAdded.getText();
     }
 
     public ShoppingCartPage goToShoppingCartPage(){
-        log.info("Navigate to Shopping Cart Page");
+        log.info("Navigate to Shopping cart page from cart page");
         click(cartButton);
         return new ShoppingCartPage(getDriver());
     }

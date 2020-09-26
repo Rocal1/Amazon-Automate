@@ -28,7 +28,7 @@ public class BaseTest {
 	@AfterTest
 	public void teardown() {
 		log.info("------------------------------END TEST-----------------------------------");
-		myDriver.disposeDriver();
+		//myDriver.disposeDriver();
 	}
 	
 	public String getPropertyFile(String keyProperty) throws IOException {
